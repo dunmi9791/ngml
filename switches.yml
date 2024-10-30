@@ -4,11 +4,14 @@
   gather_facts: no
   connection: network_cli
   vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_user: "{{ semaphore_user }}"
+    ansible_password: "{{ semaphore_password }}"
     vlan_id: 128
     vlan_name: VLAN_128
   tasks:
     - name: Ensure VLAN 128 is present
-      ios_vlan:
+      cisco.ios.ios_vlan:
         vlan_id: "{{ vlan_id }}"
         name: "{{ vlan_name }}"
         state: present
