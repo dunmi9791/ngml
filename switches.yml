@@ -1,0 +1,14 @@
+---
+- name: Create VLAN 128 on switches
+  hosts: switches
+  gather_facts: no
+  connection: network_cli
+  vars:
+    vlan_id: 128
+    vlan_name: VLAN_128
+  tasks:
+    - name: Ensure VLAN 128 is present
+      ios_vlan:
+        vlan_id: "{{ vlan_id }}"
+        name: "{{ vlan_name }}"
+        state: present
