@@ -1,3 +1,13 @@
+
+- name: Install Cisco IOS collection
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Ensure cisco.ios collection is installed
+      ansible.builtin.ansible_galaxy:
+        name: cisco.ios
+        type: collection
+        state: present
 ---
 - name: Create VLAN 128 on switches
   hosts: switches
