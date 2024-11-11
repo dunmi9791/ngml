@@ -1,4 +1,4 @@
-
+---
 - name: Install Cisco IOS collection
   hosts: localhost
   gather_facts: no
@@ -8,7 +8,7 @@
         name: cisco.ios
         type: collection
         state: present
----
+
 - name: Create VLAN 128 on switches
   hosts: switches
   gather_facts: no
