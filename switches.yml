@@ -2,12 +2,8 @@
 - name: Install Cisco IOS collection
   hosts: localhost
   gather_facts: no
-  tasks:
-    - name: Ensure cisco.ios collection is installed
-      ansible.builtin.ansible_galaxy:
-        name: cisco.ios
-        type: collection
-        state: present
+  roles:
+    - install_cisco_ios_collection
 
 - name: Create VLAN 128 on switches
   hosts: switches
@@ -19,9 +15,5 @@
     ansible_password: "{{ semaphore_password }}"
     vlan_id: 128
     vlan_name: VLAN_128
-  tasks:
-    - name: Ensure VLAN 128 is present
-      cisco.ios.ios_vlan:
-        vlan_id: "{{ vlan_id }}"
-        name: "{{ vlan_name }}"
-        state: present
+  roles:
+    - create_vlan
