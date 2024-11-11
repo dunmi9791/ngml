@@ -1,5 +1,5 @@
 ---
-- name: Install cisco.ios collection
+- name: "Install cisco.ios collection"
   ansible.builtin.command: ansible-galaxy collection install cisco.ios
   args:
     creates: "{{ ansible_user_dir }}/.ansible/collections/ansible_collections/cisco/ios"
