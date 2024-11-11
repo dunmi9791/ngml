@@ -1,5 +1,4 @@
----
-- name: "Ensure VLAN "{{ vlan_id }}" is present"
+- name: "Ensure VLAN {{ vlan_id }} is present"
   cisco.ios.ios_vlan:
     vlan_id: "{{ vlan_id }}"
     name: "{{ vlan_name }}"

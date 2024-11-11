@@ -9,6 +9,8 @@
   hosts: switches
   gather_facts: no
   connection: network_cli
+  collections:
+    - cisco.ios
   vars:
     ansible_network_os: cisco.ios.ios
     ansible_user: "{{ semaphore_user }}"
